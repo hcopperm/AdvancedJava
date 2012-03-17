@@ -1,0 +1,206 @@
+do you know how to program
+android class: have to know your java
+
+java from the beginning:
+
+Programming language
+  *High-level
+    
+Strict compiler
+  strict type-checking
+    robust
+
+c++ & c when java came out
+  sun said: c++ is too complicated
+  stripped c++
+  rewrote compiler --> java
+
+syntax: closer to c
+
+java: strong api
+  application programming interface
+    bunch of classes & interfaces
+    don't need to implement lots of things
+
+pure object-oriented language
+c++: hybrid language--can write a language in c and compile it in a c++ compiler
+
+java compiler: must write a class, can't just write a program with assertions (?)
+
+architecture-neutral
+  *executable can be run on any architecture
+  *binary does not contain machine-specific instructions
+  *executable needs to be translated to architecture-specific  
+  *Java virtual machine--interprets binary (?) on any architecture
+
+portability
+  *basically means the same as architecture-neutral
+  
+*architecture-neutral byte code
+
+
+*compile AND interpreting AND executing
+  interpreting & executing == running
+  interpreting = translating into architecture-specific instructions
+
+(just-in-time compiler--generate native java code)
+
+
+Multi-threaded: operating system feature, not language, really
+  *write a program in such a way that it will split into multiple units of execution: thread
+    *can run different threads on different CPUs
+      *faster?
+  *java provides a layer of api to support multi-threading
+    *also has syntactic features if you want to write multiple threads (?)
+
+Distributed:
+  *one program can communicate with another on another machine using java api only
+    support for different protocols (?)
+
+Dynamic:
+  *static--means @ compile time
+  *dynamically: attach libraries @ runtime
+
+Robust:
+  exception handling that works for all architectures
+  strong type checking
+  
+Secure
+ 
+*Improves programmer efficiency
+
+*Garbage collection
+  *can be a performance problem
+
+
+
+Java SE: standard edition 
+6 or 7
+
+
+Applet: special binary that cannot run on its own
+  needs another app to start it and walk through it
+  can be run on a web browser
+
+jdk: java development kit compiler, interpreter, jvm
+
+jre: java runtime environment: if you don't want to write java but just run it
+
+jdbc: java database connector (?)
+
+Reflection: lets you browse through a binary
+
+generics: 
+  standard template libraries
+
+jar: java archive
+
+java beans: enterprise-level classes
+
+collections: data structures
+
+
+java: may have one or more source file
+  .java file
+  one or more classes in a source file
+each class gets compiled and written to its own .class file
+
+java blah.java
+
+class must contain the "main" method
+
+public class == name of file
+
+Object Oriented Programming
+
+Class/Object
+  *You define a class
+    *Class instantiated = object
+    *Memory is allocated for instantiated object
+
+Encapsulation
+  *Hiding implementation details: important
+
+Polymorphism
+  *Method overloading & overriding
+  
+
+
+Inheritance
+  *Can subclass objects
+  *Hierarchical classification of objects
+
+
+importing: seeking access to package/class
+import java.package.Class
+
+extends: 
+  signals your class inherits from something
+  
+if we wanted to extend Applet:
+  html file with <APPLET> tag
+
+(remember applets can't run on their own)
+
+arrays
+  dynamically created using 'new' operator
+  manipulating using reference
+    (basically a pointer)
+  error if you try to access something outside of array boundary
+  automatically garbage collected
+ 
+
+character: two bytes
+  only use 1 if it can (ascii)
+
+int: 4 bytes
+ 
+long: 8 bytes
+
+double: 8 bytes
+
+it's ok to have a main method in a non-public class (?)
+
+public, private, protected: access modifiers
+
+Package: collection of classes
+  name: java.something (for official packages)
+  use reverse domain name for your own packages
+
+Command line args: strings
+
+
+
+Class: data type
+  you can have:
+    instance variables
+    instance methods
+      every time you make an object, memory is allocated for these
+
+    static variables
+    static methods
+      memory is allocated once
+
+
+constructor: method
+  help create the object
+  can have more than one constructor
+  
+static/instance initialization blocks (?)
+
+method overloading
+  define a method with same name & different signatures
+
+subclass is a superclass
+ie "circle" is a "shape"
+  "string" is an "object"
+   
+default constructor: if class hasn't provided a constructor, 
+  compiler supplies one that looks like this
+    Class() { super(); }
+
+
+enums
+
+
+  
