@@ -1,0 +1,196 @@
+Advanced Java 3/17/12
+
+Inheritance
+Shadow variables
+casting
+abstract
+packages
+package namespace
+exception handling
+
+*Method overloading:
+  two methods with same name but different arguments
+  return type can be different
+*Method overriding
+
+*Inheritance
+  reuse of API
+  already lots of existing API available
+  
+-subclassing
+define a class as a subclass of an existing class
+choose parent class carefully
+  design decision
+  you're stuck with that superclass
+
+"subclass extends superclass"
+
+class Circle extends Shape {}
+class Shape {}
+
+subclasses provide specialized behavior not exhibited by parent class
+*choose superclass to be more generic (?)
+*always superclass for any object we define
+  *if we don't say explicitly, it's "Object"
+    *general concept of Java object
+    *to_string: string rep. of your object
+assignment-comparable (?)
+
+instance data members inheritance
+circle obj
+circle-x
+circle-y
+r
+
+shape obj
+shape-x
+shape-y
+r
+  
+Circle obj2 = new Circle()
+obj2.shape-x
+obj2.shape-y
+this.shape-x
+...etc
+
+obj2.r == circle r, not shape r
+*start at immediate class, then look up through superclasses if can't find r
+variable name shadowing/hiding
+  circle r stands in front of shape r
+  *NOT* overriding--that's for methods
+we can also cast obj2 to superclass
+  (Shape)obj2.r
+
+inside instance methods we can use "super"
+private: subclass can't see private vars of its superclass
+
+method overriding:
+  if Circle's method is the same in all respects as Shape's method, obj2.method == Circle method, not Shape
+  runtime/dynamic binding: compiler can't tell which class method belongs to; decides at runtime
+
+static methods cannot be overridden
+ 
+dynamic method lookup:
+  name of the method is associated with instructions @ runtime, not compiletime
+
+Constructors and inheritance:
+
+a class constructor is called when class is instantiated
+ also when subclass is instantiated
+  new Circle() => new Shape() implicitly called
+
+if you don't define a constructor compiler looks like this:
+Circle() {super();}
+  superclass *must* have a no-arg constructor
+
+
+constructor chaining
+-first Obj is constructed
+-then Shape is constructed
+-then Circle
+--if Shape and Circle have var r, memory is allocated for both in different spots
+
+static methods: not inherited, acquired instead
+
+upcasting
+
+Shape shapeObj;
+Circle circleObj = new Circle();
+shapeObj = circleObj;//upcasting
+(Circle)newshape.r//downcast
+
+every instance of a subclass is an instance of a superclass
+
+interface cannot be final, synchronized, native, static, private, or protected
+
+implement interface
+  *must provide implementation for methods
+
+one implementation is good enough--if you implement an interface, and a superclass implements one of the methods of the interface, you don't need to implement it
+
+if you implement an interface but don't implement all its methods, you must declare your class to be abstract
+some subclass must implement those methods
+
+multiple inheritance--fine for interfaces
+public interface abc extends def, ghi //those are interfaces as well
+
+interface RectangularShape;
+RectangularShape blah = new Circle();//ok but that provides no benefit
+
+package --lets you create a package that can be imported into other classes
+package blah;
+
+then you can do import package to use it somewhere else;
+
+package shapes;
+public class Circle
+
+anybody who uses that package can use Circle
+
+if you didn't have 'public' only other classes inside that package can use Circle
+
+can have embedded classes (?)
+
+protected: member is visible to the class & accessible to subclasses
+
+good idea to write public methods to get access to protected members (at least getters if not setters)
+
+public Superclass returnType() {}
+public Subclass returnType() {}//valid bc Subclass is a subclass of Superclass (?)
+
+throw an exception: generate an error
+catch an exception: handle it, try to recover
+
+java language says you have to either catch or specify exceptions
+that means the compiler checks
+
+all exceptions have to be handled somehow
+
+java supports the following: 
+  try catch finally throw throws
+compiler doesn't always enforce that you specify every exception that could happen
+
+programmer can write methods that throw/specify standard exceptions
+  part of some API
+
+when you write your own exception class it must extend Throwable or another exception
+
+exception class:
+  anything that is derived from Throwable
+  
+can't have two consecutive throws:
+  second throw is never reached 
+
+error: subclass of Throwable
+ things that are to be handled by JVM
+
+public Blah blah() throws IOException
+
+either have to throw IOException or handle it if you use blah()
+
+if you say throws Exception that covers all types of exceptions
+
+programmer can also do:
+try catch finally:
+
+try {all statements that could cause exceptions}
+
+catch (exception_type) {}
+catch (another exception_type) {}
+
+finally {always executed even if we have no error handler}
+//don't have to have it but is nice
+
+can't have 'try' by itself, have to have a 'catch' or 'finally'
+
+catch block can be empty
+
+if a catch type matches, java uses that one and skips the rest
+
+ie 
+catch(superclass) {}
+catch(subclass) {}
+
+first one will be called, not second, so order it by specificity
+
+
