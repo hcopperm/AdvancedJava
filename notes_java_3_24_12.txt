@@ -1,3 +1,118 @@
 notes java 3/24/12
 IO API
 
+java streams and input/output
+
+have to understand how to use library classes in order so your application will handle io properly
+
+character reading: for displaying data
+byte reading: for manipulating but not showing data
+
+data sink: repository of data
+
+how to create a data sink, how to read from, how to write to
+
+buffer reading operation
+want to read alternate lines from a file
+java provides lots of options
+filtering, etc
+
+reader/writer: character api
+
+character stream
+
+byte stream
+
+data sink streams identify whether data is read or written to sinks
+
+input: Reader
+output: Writer
+
+Reader: abstract class
+*array of bytes
+*string obj
+*file
+*pipe (Unix style)
+
+reading can be viewed as: 
+  *open stream
+  *while more info: read info
+  *close stream
+
+bufferedreader
+inputstreamreader= converts bytes to char
+filterreader: read chars + filter
+
+writer
+array of bytes (can simulate string by array)
+file
+pipe
+
+open stream
+while more information: write information
+close stream
+
+bufferedwriter
+outputstreamreader: bytes to chars
+filterwriter
+printwriter: char equivalent of printstream
+
+pipedreader/writer: chars
+pipedinputstream/outputsteam: bytes
+
+chars: more than one byte
+
+processing streams:
+buffered reader/writer/inputstream/outputstream etc
+filter
+sequenceinputstream: concat (doesn't display)
+objectinputstream: object serialization
+datainputstream: data conversion
+
+StreamTokenizer
+
+object serialization
+  write object, + all the things it refers to, to a stream
+
+deserialize: restore an object
+
+must implement serializable
+  turns it into a sequence of bytes
+
+  no methods
+  if you don't serialize an object it can save space?
+most standard objects in java lang are already serializable
+
+assertions
+  need to enable them before you run code
+  java -ea:<classname>
+  <package_name>
+  
+if the assertion is false, AssertionError is thrown
+
+generics
+  parameterized types or templates
+  allow programmers to work with reusable classes in a type-safe manner
+  
+  allows for developing a class that can be generic in implementation and used in a type-specific manner
+
+  if you pass an int to something that expects an Object, converts the int to its object wrapper type: Integer
+
+Stats<T extends Number> {}
+
+...Stats<?> ob
+
+? = any type that extends Number
+  make sure everything you do with it can be done with any Number obj
+
+static <T, V extends T> boolean isIn(T item, V[] itemArray) {}
+  V must be a subclass of T
+    a class extends itself
+
+collection: root interface
+set, list: sub-interfaces
+
+list
+  implemented by ArrayList, LinkedList
+
+

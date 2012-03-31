@@ -1,0 +1,129 @@
+notes advanced java 3/31/12
+4th class
+
+
+try block *must* be able to throw an exception
+  syntax error
+
+
+Threads
+Applets
+Swing API
+GUI
+etc etc
+
+what is a thread
+what is a process
+
+concurrent programming api--threads are part of that
+
+java.lang--conc. prog. api
+java.util--has some conc. stuff too
+
+processes vs threads
+run a program--becomes a process
+gets created
+goes on a run/dispatch queue
+cpu picks one thing from queue
+process taken off cpu + put back on dispatch queue/other queue
+
+process consists of all program text
+many functions, files, classes
+
+thread: bunch of statements that can be independently given to cpu
+non-threaded program: kernel creates main thread
+
+if it is threaded, threads compete for cpu
+save time
+threads don't need to wait on each other for cpu
+
+most jvms run as a single process
+a java application can create additional processes using a ProcessBuilder object
+
+each process has its own memory space
+
+processes: seen as synon. w programs or applications
+
+threads: light weight processes (lwps)
+
+for the os, takes thread, puts it in a data structure (lpw)
+
+every process has at least one thread
+
+threads share resources, unlike processes
+
+multithreading: os must support it; essential feature of java
+
+thread: user creates it
+what is eligible to be a thread is decided by the developer(?)
+
+thread programming textbook
+
+could be a function, could be a class
+
+similar to a process: has a beginning, a sequence, and an end
+cannot run on its own though
+
+at any given time of runtime of thread, there is a single point of execution
+
+main thread waits at the end for the other threads to finish
+
+system.exit: exits the interpreter: kills threads, so do it at the end when all threads have finished
+
+thread has own execution stack + program counter. takes advantage of resources allocated for program that it is running inside
+
+java has to juggle diffs in how oses deal with threading
+
+java allows a program to be threaded, each running in their own context
+
+threads each have priority
+
+direct control of threaded applications
+
+declare a class to be a subclass of Thread class
+thread class: sleep method, run method, start method
+
+thread.start: native method
+
+runnable: interface, only method is "run"
+
+thread implements runnable
+
+to make something run as a thread, you have to call "start"--native method, calls C code, cannot
+be overridden
+
+start method automatically calls run
+
+Thread.currentThread--lets you find the current running thread
+
+Thread constructor takes a Runnable argument
+
+Thread.sleep--puts main thread to sleep
+
+if you implement Runnable, must implement "run"
+
+join: tell main thread to wait until another thread is finished
+  if you give it a time it'll wait and then try to join
+
+we use a pipe so buffering is done
+pipe output stream
+pipe input stream
+
+priorities for threads
+
+volatile data type: not put on a register
+  for data that changes frequently
+
+if threads are sharing an object it may corrupt the data of that obj
+
+threads must synchronize their access to shared resources
+
+parts of threads that access shared resources: critical segments
+
+lock the object so nobody else can modify it
+  synchronized keyword
+
+granularity of lock: object, not method
+
+
+
