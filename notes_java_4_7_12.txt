@@ -1,0 +1,88 @@
+4/7/12
+
+gui framework in java
+*button, canvas, checkbox, etc
+*layout managers
+*events and listeners
+*graphics and imaging classes
+
+component--generic gui component
+  container
+    panel
+      applet
+    window
+      frame
+        dialog frame
+        
+  checkbox
+  menu
+
+graphics and imaging classes: graphics, color, font, point
+
+swing: extension of AWT
+  AWT: heavyweight
+    obsolete
+
+event source
+event listener
+
+gui components: generate events
+OS must monitor environment for keystrokes/mouse clicks/etc
+transmits those to the GUI program
+then java has to deal with them
+
+gui components--event sources
+
+event listeners: we code them so that when an event happens, we are notified
+
+
+
+ActionEvent: mouse event, button event, etc
+AdjustmentEvent: scrollbar etc
+ItemEvent: selection of checkboxes etc
+TextEvent: text box changes
+
+ComponentEvent
+KeyEvent
+MouseEvent
+ContainerEvent
+
+Listeners
+corresponds to events
+
+
+How to do event handling:
+program must:
+  import event package
+  implement a listener interface
+ 
+associate listener + event object
+
+event listener may be removed from object
+
+event listeners + their methods have already been implemented
+
+import java.awt.*
+import java.awt.event.*
+  separate packages
+
+Color class has hard-coded values
+
+FlowLayout
+getContentPanel()--like document.getwhatever in html--Swing thing to get a place to hook into
+
+ActionListener--only method: actionPerformed()
+ie new ActionListener() {
+}
+
+button = new Button()
+
+button.addListener(new Listener whatever)
+
+Listener must implement blahPerformed
+
+
+
+
+  
+
